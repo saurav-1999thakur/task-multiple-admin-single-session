@@ -7,7 +7,7 @@
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link href="<?php echo base_url();?>assets/css/style.css" rel="stylesheet" type="text/css" />
-        <title>Team User</title>
+        <title>Update</title>
     </head>
     <body id="kt_body" class="app-blank bgi-size-cover bgi-position-center bgi-no-repeat">
     <!-- Navbar -->
@@ -54,58 +54,60 @@
             </div>
         </div>
     </nav>
-    <!--begin::Body-->
-    <div class="container">
-    <div class="card-body py-3">
-		<!--begin::Table container-->
-		<div class="table-responsive">
-			<!--begin::Table-->
-			<table class="table table-bordered border-dark table-row-gray-300 align-middle gy-4">
-				<!--begin::Table head-->
-			    <thead>
-				    <tr class="fw-bold text-muted">
-					    <th class="min-w-50px">S.No.</th>
-					    <th class="min-w-150px">Name</th>
-					    <th class="min-w-150px">Contact</th>
-					    <th class="min-w-150px">Email</th>
-					    <th class="min-w-150px">Date</th>
-					    <!-- <th class="min-w-150px"></th> -->
-					    <th class="min-w-100px text-end">Actions</th>
-				    </tr>
-			    </thead>
-				<!--end::Table head-->
-				<!--begin::Table body-->
-				<tbody>
-                <?php $s=1; foreach($list as $data){?>
-					<tr>
-						<td><?php echo $s++;?></td>
-						<td><?php echo $data['name'];?></td> 
-						<td><?php echo $data['contact'];?></td> 
-						<td><?php echo $data['email'];?></td> 
-						<td><?php echo $data['created_at'];?></td> 
-						<td>
-							<!-- edit list  for database -->
-							<div class="d-flex justify-content-end flex-shrink-0">
-								<a href="<?php echo ('edit_user_data/'.$data['id']);?>">
-			                        <i class="fa fa-pencil-square-o fa-fw" aria-hidden="true" style="font-size:25px;"> </i> 
-								</a>
-							<!-- delete list for database -->
-								<a href="<?php echo ('remove_user/'.$data['id']);?>">
-									<i class="fa fa-trash fa-fw" aria-hidden="true" style="font-size:25px;"></i>
-								</a>   
-							</div>
-						</td> 
-					</tr>
-                    <?php }?>
-				</tbody>
-				<!--end::Table body-->
-			</table>
-			<!--end::Table-->
-		</div>
-		<!--end::Table container-->
-	</div>
-	<!--begin::Body-->
+<section class="text-center">
+  <!-- Background image -->
+  <div class="p-5 bg-image" style="
+        background-image: url('https://mdbootstrap.com/img/new/textures/full/171.jpg');
+        height: 300px;
+        "></div>
+  <!-- Background image -->
+
+  <div class="card mx-4 mx-md-5 shadow-5-strong" style="
+        margin-top: -100px;
+        background: hsla(0, 0%, 100%, 0.8);
+        backdrop-filter: blur(30px);
+        ">
+    <div class="card-body py-5 px-md-5">
+
+      <div class="row d-flex justify-content-center">
+        <div class="col-lg-8">
+          <h2 class="fw-bold mb-5">Update user</h2>
+          <form action="<?php echo base_url('Home_controller/update_user_by_id');?>" method="POST">
+          <input type="hidden" name="edit_id" value="<?php echo $get['id'];?>">
+            <!-- 2 column grid layout with text inputs for the first and last names -->
+            <div class="row">
+              <div class="col-md-6 mb-4">
+                <div class="form-outline">
+                  <input type="text" name="name" id="form3Example1" class="form-control" value="<?php echo $get['name'];?>" />
+                  <label class="form-label"  for="form3Example1">Name</label>
+                </div>
+              </div>
+              <div class="col-md-6 mb-4">
+                <div class="form-outline">
+                  <input type="email" name="email" id="form3Example2" class="form-control" value="<?php echo $get['email'];?>" />
+                  <label class="form-label"  for="form3Example2">Email</label>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 mb-4">
+                <div class="form-outline">
+                  <input type="number" name="contact" id="form3Example1" class="form-control" value="<?php echo $get['contact'];?>" />
+                  <label class="form-label"  for="form3Example1">Contact</label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Submit button -->
+            <button type="submit" class="btn btn-primary btn-block mb-4">
+              Update
+            </button>
+          </form>
+        </div>
+      </div>
     </div>
-<!-- Navbar -->
- </body>
- </html>
+  </div>
+</section>
+<!-- Section: Design Block -->
+</body>
+</html>

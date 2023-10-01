@@ -58,6 +58,23 @@ class Home_controller extends CI_Controller {
             echo "failed";
         }
     }
+    public function edit_user_data($id){
+        $tablename="sub_user";
+        $data['user_data'] = $this->session->userdata('login_data');
+        $data['get']=$this->Home_model->get_data_by_id($tablename,$id)->row_array();
+        $this->load->view('edit_user',$data);
+    }
+    public function update_user_by_id(){
+        $tablename="sub_user";
+        $id = $this->input->post('edit_id');
+        $data=array(
+            'name'=>$this->input->post('name'),
+            'email'=>$this->input->post('email'),
+            'contact'=>$this->input->post('contact')
+        );
+        $this->Home_model->update_data($tablename,$id,$data);
+        header('location:list');
+    }
 	
 
 }
