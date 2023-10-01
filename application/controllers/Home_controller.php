@@ -7,7 +7,6 @@ class Home_controller extends CI_Controller {
         parent::__construct();
 		$this->load->model('Auth_model');
 		$this->load->model('Home_model');
-        // $this->load->library('user_agent');
         $log = $this->session->userdata('login_data');
 		
 		if (empty($log)) {

@@ -79,6 +79,7 @@
                 <div class="form-outline">
                   <input type="text" name="name" id="form3Example1" class="form-control" />
                   <label class="form-label"  for="form3Example1">Name</label>
+                  
                 </div>
               </div>
               <div class="col-md-6 mb-4">
