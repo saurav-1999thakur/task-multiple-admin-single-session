@@ -34,12 +34,14 @@
               <div class="col-md-6 mb-4">
                 <div class="form-outline">
                   <input type="text" name="name" id="form3Example1" class="form-control" />
+                  <span style="color:red"><?php echo form_error('name'); ?></span>
                   <label class="form-label"  for="form3Example1">Name</label>
                 </div>
               </div>
               <div class="col-md-6 mb-4">
                 <div class="form-outline">
                   <input type="email" name="email" id="form3Example2" class="form-control" />
+                  <span style="color:red"><?php echo form_error('email'); ?></span>
                   <label class="form-label"  for="form3Example2">Email</label>
                 </div>
               </div>
@@ -48,12 +50,14 @@
               <div class="col-md-6 mb-4">
                 <div class="form-outline">
                   <input type="number" name="contact" id="form3Example1" class="form-control" />
+                  <span style="color:red"><?php echo form_error('contact'); ?></span>
                   <label class="form-label"  for="form3Example1">Contact</label>
                 </div>
               </div>
               <div class="col-md-6 mb-4">
                 <div class="form-outline">
                   <input type="password" name="password" id="form3Example2" class="form-control" />
+                  <span style="color:red"><?php echo form_error('password'); ?></span>
                   <label class="form-label"  for="form3Example2">Password</label>
                 </div>
               </div>
@@ -61,6 +65,7 @@
             <div class="col-md-6 mb-4">
                 <div class="form-outline">
                   <input type="text" name="company" id="form3Example2" class="form-control" />
+                  <span style="color:red"><?php echo form_error('company'); ?></span>
                   <label class="form-label"  for="form3Example2">Company</label>
                 </div>
               </div>

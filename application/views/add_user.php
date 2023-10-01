@@ -78,6 +78,7 @@
               <div class="col-md-6 mb-4">
                 <div class="form-outline">
                   <input type="text" name="name" id="form3Example1" class="form-control" />
+                  <span style="color:red"><?php echo form_error('name'); ?></span>
                   <label class="form-label"  for="form3Example1">Name</label>
                   
                 </div>
@@ -85,6 +86,7 @@
               <div class="col-md-6 mb-4">
                 <div class="form-outline">
                   <input type="email" name="email" id="form3Example2" class="form-control" />
+                  <span style="color:red"><?php echo form_error('email'); ?></span>
                   <label class="form-label"  for="form3Example2">Email</label>
                 </div>
               </div>
@@ -93,6 +95,7 @@
               <div class="col-md-6 mb-4">
                 <div class="form-outline">
                   <input type="number" name="contact" id="form3Example1" class="form-control" />
+                  <span style="color:red"><?php echo form_error('contact'); ?></span>
                   <label class="form-label"  for="form3Example1">Contact</label>
                 </div>
               </div>

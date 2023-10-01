@@ -7,6 +7,8 @@ class Home_controller extends CI_Controller {
         parent::__construct();
 		$this->load->model('Auth_model');
 		$this->load->model('Home_model');
+        
+        $this->load->library('form_validation');
         $log = $this->session->userdata('login_data');
 		
 		if (empty($log)) {
@@ -33,24 +35,32 @@ class Home_controller extends CI_Controller {
     }
 
     public function insert_user(){
-
         $userdata['user_data'] = $this->session->userdata('login_data');
         $sess = $userdata['user_data']['name'];
         $sess2 = $userdata['user_data']['company'];
-        $data = array(
-            'name' => $this->input->post('name'),
-            'contact' => $this->input->post('contact'),
-            'email' => $this->input->post('email'),
-            'company_admin' => $sess,
-            'company_name' => $sess2
-        );
 
-        $tablename = 'sub_user';
-        // pr($data);die;
-        $this->Home_model->insertData($tablename,$data);
-        
-        header('location:list');
-        
+        $this->form_validation->set_rules('name','Name', 'required');
+        $this->form_validation->set_rules('email','Email', 'required|valid_email');
+        $this->form_validation->set_rules('contact','Contact', 'required');
+        if($this->form_validation->run()==FALSE){
+			$this->load->view('add_user',$userdata);
+
+		}else{
+            
+            $data = array(
+                'name' => $this->input->post('name'),
+                'contact' => $this->input->post('contact'),
+                'email' => $this->input->post('email'),
+                'company_admin' => $sess,
+                'company_name' => $sess2
+            );
+
+            $tablename = 'sub_user';
+            // pr($data);die;
+            $this->Home_model->insertData($tablename,$data);
+            
+            header('location:list');
+        }
     }
 
 
