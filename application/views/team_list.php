@@ -91,7 +91,7 @@
 									</i> 
 								</a>
 							<!-- delete list for database -->
-								<a href="#">
+								<a href="<?php echo ('remove_user/'.$data['id']);?>">
 									<i class="fa fa-trash fa-fw" aria-hidden="true" style="font-size: 25px;">
 									</i>
 								</a>   
